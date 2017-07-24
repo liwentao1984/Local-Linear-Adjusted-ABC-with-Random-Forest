@@ -1,1 +1,5 @@
 # Local-Linear-Adjusted-ABC-with-Random-Forest-Summaries
+
+A key issue of Approximate Bayesian Computation (ABC) is the choice of the summary statistic. For parameter estimation, Raynal, Marin, Pudlo, Ribatet, Robert, and Estoup(2017) proposes to use random forest to utilise a large number of summary statistics. Call it RF-ABC. One issue with this algorithm is that it can not estimate the whole posterior distribution. Multiple target functions of the posterior need seperate run of the algorithm for each. This project tries the following improvement. First select a a large number of summaries, then for each (parameter,data) pair, running RF-ABC targeting the unknown parameter gives a point estimate of the underlying parameter. Then in regression-adjusted ABC, for each simulated parameter value, we use the point estimate given by RF-ABC as the summary statistic.
+
+It is hoped that this new algorithm can combine the large number of summary statistics and regression adjustment more efficiently than the plain regression-ABC, and provide the distribution estimation which RF-ABC doesn't.
